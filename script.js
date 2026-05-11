@@ -1,5 +1,8 @@
 // Smooth scroll for navigation links
+
+//Selects all links that start with #
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //When an anchor with a # is clicked the scrolling behaviour is modified
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -17,7 +20,7 @@ const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
 };
-
+//Function for elements loading
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -47,7 +50,7 @@ document.querySelectorAll('.skill-category').forEach(category => {
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (pageYOffset >= sectionTop - 200) {
